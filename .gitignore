@@ -1,0 +1,103 @@
+# ======================================
+# Python
+# ======================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+*.manifest
+*.spec
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+ENV*/
+env.bak/
+venv.bak/
+
+# PyInstaller
+*.spec
+
+# MyPy, Pylint, coverage reports
+.mypy_cache/
+.pytest_cache/
+.coverage
+.tox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ======================================
+# Editor & IDE files
+# ======================================
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Vim
+*.swp
+*.swo
+*.vimbackup
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# JetBrains IDEs
+*.iws
+*.ipr
+
+# ======================================
+# macOS, Windows, Linux
+# ======================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.Trashes
+*.Trash
+
+# ======================================
+# Miscellaneous
+# ======================================
+*.bak
+*.tmp
+*.orig
+*.old
+*.out
+
+# Ignore local config and result files
+*.env
+.env.*
+*.sqlite3
+*.db
+*.log
+*.result
+*.pth
