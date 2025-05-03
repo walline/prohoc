@@ -129,7 +129,7 @@ done
 
 ## Generate Predictions
 
-Generate validation logits for ID and OOD data to enable evaluating the
+Generate validation logits for ID and OOD data to enable evaluating
 the hierarchical inference.
 
 ### FGVC-Aircraft
