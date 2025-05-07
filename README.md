@@ -12,7 +12,7 @@ Python dependencies are listed in [requirements.txt](./requirements.txt).
 Install them using:
 
 ```bash
-pip install -r requirements.py
+pip install -r requirements.txt
 ```
 
 ## Dataset Setup
@@ -112,10 +112,11 @@ done
 ```bash
 HEIGHTS=(0 1 2 3 4 5 6 7 8 9 10)
 DSET=simple-hier-imagenet
+DATASOURCE=imagenet
 
 for HEIGHT in "${HEIGHTS[@]}"; do
   python3 $PROHOC/main_multidepth.py \
-    --datadir $PROHOCDATA/$DSET/ \
+    --datadir $PROHOCDATA/$DATASOURCE/ \
     --hierarchy $PROHOC/hierarchies/$DSET.json \
     --traindir $TRAINDIR/$DSET/H$HEIGHT \
     --id_split $PROHOC/data/$DSET-id-labels.csv \
@@ -124,6 +125,11 @@ for HEIGHT in "${HEIGHTS[@]}"; do
     --lr 0.05
 done
 ```
+
+**Note:** Although the hierarchy is named simple-hier-imagenet, it is
+built using a class subset from the ImageNet dataset. Therefore, the
+data directory (--datadir) points to imagenet, not
+simple-hier-imagenet.
 
 *Training jobs can also be run in parallel if your system supports it.*
 
@@ -208,6 +214,21 @@ You can load and inspect the results using:
 import torch
 torch.load(...)
 ```
+
+## Hierarchies
+
+The class hierarchies are defined in JSON files located in the
+[hierarchies](https://github.com/walline/prohoc/tree/main/hierarchies)
+directory. Each JSON file represents a tree-structured class
+hierarchy, where every node corresponds to a class in the dataset.
+
+Each node in the JSON files contains the following fields:
+
+- `name`: A string identifying the class. This should match the corresponding class directory name of the dataset.
+- `description`: A human-readable description of the class, useful for clarifying non-descriptive class names (such as WordNet IDs).
+- `children`: A list of child nodes, each following the same structure, representing subclasses. This list is empty for leaf nodes.
+
+To define a new hierarchy, create a JSON file with the same structure. The top-level node needs to be named "root".
 
 ## Notes
 
